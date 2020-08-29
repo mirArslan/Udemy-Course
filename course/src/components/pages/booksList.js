@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-function BooksList(){
-    console.log("Active", this.props.books)
+function BooksList(props){
+    console.log("Active", props.books); // this keyword can only be used in Class based component
     return(
         <div>
             <h2>Hello React</h2> 
@@ -12,7 +12,7 @@ function BooksList(){
 
 function mapStateToProps(state){
     return{
-        books: state.books.books
+        books: state && state.books && state.books.books || []
     };
 }
 
